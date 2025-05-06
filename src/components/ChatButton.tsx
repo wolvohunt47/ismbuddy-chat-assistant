@@ -15,7 +15,7 @@ const ChatButton: React.FC<ChatButtonProps> = ({ onClick }) => {
       className="flex flex-col items-center gap-2 cursor-pointer animate-fade-in"
     >
       <Button 
-        className="h-14 w-14 rounded-full shadow-lg bg-ism-blue hover:bg-ism-blue/90 transition-all duration-300 hover:scale-105"
+        className="h-14 w-14 rounded-full shadow-lg bg-ism-maroon hover:bg-ism-maroon/90 transition-all duration-300 hover:scale-105"
       >
         <MessageCircle size={24} />
       </Button>

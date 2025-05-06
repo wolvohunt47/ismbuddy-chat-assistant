@@ -25,7 +25,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, message, timestamp }) =
       <div 
         className={cn(
           "rounded-full p-2 flex items-center justify-center",
-          isBot ? "bg-ism-blue text-white" : "bg-ism-gold text-ism-dark"
+          isBot ? "bg-ism-maroon text-white" : "bg-ism-gold text-ism-dark"
         )}
       >
         {isBot ? <Bot size={16} /> : <User size={16} />}
@@ -33,7 +33,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, message, timestamp }) =
       <div 
         className={cn(
           "rounded-lg p-3 max-w-[80%]",
-          isBot ? "bg-gray-100 text-ism-dark" : "bg-ism-blue text-white"
+          isBot ? "bg-gray-100 text-ism-dark" : "bg-ism-maroon text-white"
         )}
       >
         <div>{message}</div>

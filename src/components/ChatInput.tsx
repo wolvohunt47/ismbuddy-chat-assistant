@@ -40,7 +40,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false }) => {
         onClick={handleSend} 
         disabled={disabled || inputValue.trim() === ''}
         variant="default"
-        className="bg-ism-blue hover:bg-ism-blue/90"
+        className="bg-ism-maroon hover:bg-ism-maroon/90"
       >
         <SendHorizontal size={18} />
       </Button>

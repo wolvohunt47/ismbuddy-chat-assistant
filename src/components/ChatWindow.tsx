@@ -91,7 +91,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
   return (
     <Card className="flex flex-col w-full h-full max-w-sm rounded-lg shadow-lg overflow-hidden border border-gray-200">
       {/* Header */}
-      <div className="flex items-center justify-between p-3 bg-white border-b">
+      <div className="flex items-center justify-between p-3 bg-ism-maroon text-white border-b">
         <div className="flex items-center gap-2">
           <ISMBuddyLogo size="sm" />
         </div>
@@ -103,7 +103,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
                   variant="ghost" 
                   size="icon" 
                   onClick={onMinimize}
-                  className="h-8 w-8 rounded-full hover:bg-gray-100"
+                  className="h-8 w-8 rounded-full hover:bg-white/10 text-white"
                 >
                   <MinimizeIcon size={16} />
                 </Button>
@@ -119,7 +119,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
                   variant="ghost" 
                   size="icon" 
                   onClick={onClose}
-                  className="h-8 w-8 rounded-full hover:bg-gray-100"
+                  className="h-8 w-8 rounded-full hover:bg-white/10 text-white"
                 >
                   <X size={16} />
                 </Button>
@@ -142,7 +142,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
         ))}
         {isTyping && (
           <div className="flex items-start gap-3 animate-fade-in">
-            <div className="rounded-full p-2 flex items-center justify-center bg-ism-blue text-white">
+            <div className="rounded-full p-2 flex items-center justify-center bg-ism-maroon text-white">
               <Bot size={16} />
             </div>
             <div className="bg-gray-100 text-ism-dark rounded-lg p-3">

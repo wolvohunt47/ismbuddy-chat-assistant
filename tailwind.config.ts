@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,6 +66,7 @@ export default {
 				ism: {
 					blue: '#003366',
 					gold: '#FFD700',
+					maroon: '#800000', // Adding maroon color
 					light: '#F5F5F5',
 					dark: '#1A202C',
 					gray: '#718096'
