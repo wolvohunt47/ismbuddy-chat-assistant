@@ -20,8 +20,9 @@ const ISMBuddyLogo: React.FC<ISMBuddyLogoProps> = ({ size = 'md' }) => {
           <span className="text-xs">ISM</span>
         </div>
       </div>
-      <div className="font-bold text-ism-blue">
-        <span className="text-ism-gold">ISM</span>BUDDY
+      <div className="font-bold">
+        <span className="text-ism-gold">ISM</span>
+        <span className="text-white">BUDDY</span>
       </div>
     </div>
   );
