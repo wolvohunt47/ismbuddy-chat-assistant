@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/tooltip';
 import { TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { MinimizeIcon, MaximizeIcon, X } from 'lucide-react';
+import { MinimizeIcon, MaximizeIcon, X, Bot } from 'lucide-react';
 import ISMBuddyLogo from './ISMBuddyLogo';
 import ChatMessage, { MessageType } from './ChatMessage';
 import ChatInput from './ChatInput';
