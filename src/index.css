@@ -122,3 +122,10 @@
 .typing-indicator span:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+/* Chat background pattern */
+.chat-background-pattern {
+  background-image: url('/lovable-uploads/35789b2a-0096-4c93-968b-0dac462c317f.png');
+  background-repeat: repeat;
+  background-size: 400px;
+}

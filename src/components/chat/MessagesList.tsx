@@ -21,7 +21,7 @@ const MessagesList: React.FC<MessagesListProps> = ({ messages, isTyping, transla
   }, [messages]);
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 bg-gray-50 chat-scrollbar">
+    <div className="flex-1 overflow-y-auto p-4 chat-background-pattern chat-scrollbar">
       {messages.map((msg) => (
         <ChatMessage
           key={msg.id}
