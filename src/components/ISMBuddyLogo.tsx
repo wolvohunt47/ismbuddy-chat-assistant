@@ -19,7 +19,7 @@ const ISMBuddyLogo: React.FC<ISMBuddyLogoProps> = ({
       </div>
       <div className="font-bold">
         <span className="text-ism-gold">IIT</span>
-        <span className="font-extrabold text-gray-100">BUDDY</span>
+        <span className="font-extrabold text-zinc-950">BUDDY</span>
       </div>
     </div>;
 };
