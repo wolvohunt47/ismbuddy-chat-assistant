@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import ChatWindow from './ChatWindow';
+import ChatWindow from './chat/ChatWindow';
 import ChatButton from './ChatButton';
 
 const ChatbotWidget: React.FC = () => {
