@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from 'react';
 import ChatMessage from '../ChatMessage';
 import MultilingualTypingIndicator from '../MultilingualTypingIndicator';
-import { Bot } from 'lucide-react';
 import { Message } from '@/types/chat';
 import { Translations } from '@/utils/languageUtils';
 
@@ -33,8 +32,8 @@ const MessagesList: React.FC<MessagesListProps> = ({ messages, isTyping, transla
       ))}
       {isTyping && (
         <div className="flex items-start gap-3 animate-fade-in">
-          <div className="rounded-full p-2 flex items-center justify-center bg-ism-maroon text-white">
-            <Bot size={16} />
+          <div className="rounded-full p-2 flex items-center justify-center bg-ism-blue text-white">
+            <div className="text-xs font-bold">IIT</div>
           </div>
           <div className="bg-gray-100 text-ism-dark rounded-lg p-3">
             <MultilingualTypingIndicator translations={translations} />

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Bot, User, CircleDot } from 'lucide-react';
+import { User } from 'lucide-react';
 
 export type MessageType = 'user' | 'bot';
 
@@ -25,10 +25,14 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, message, timestamp }) =
       <div 
         className={cn(
           "rounded-full p-2 flex items-center justify-center",
-          isBot ? "bg-ism-maroon text-white" : "bg-ism-gold text-ism-dark"
+          isBot ? "bg-ism-blue text-white" : "bg-ism-gold text-ism-dark"
         )}
       >
-        {isBot ? <CircleDot size={16} /> : <User size={16} />}
+        {isBot ? (
+          <div className="text-xs font-bold">IIT</div>
+        ) : (
+          <User size={16} />
+        )}
       </div>
       <div 
         className={cn(
