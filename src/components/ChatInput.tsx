@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { SendHorizontal } from 'lucide-react';
+import { Translations } from '@/utils/languageUtils';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
   disabled?: boolean;
+  translations: Translations;
 }
 
-const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false }) => {
+const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false, translations }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSend = () => {
@@ -29,7 +31,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false }) => {
   return (
     <div className="flex gap-2 p-3 border-t bg-white">
       <Input
-        placeholder="Type your message here..."
+        placeholder={translations.inputPlaceholder}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}

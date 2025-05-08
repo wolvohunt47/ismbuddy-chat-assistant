@@ -4,11 +4,18 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/tooltip';
 import { TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { MinimizeIcon, MaximizeIcon, X, Bot } from 'lucide-react';
+import { MinimizeIcon, X, Bot } from 'lucide-react';
 import ISMBuddyLogo from './ISMBuddyLogo';
 import ChatMessage, { MessageType } from './ChatMessage';
 import ChatInput from './ChatInput';
-import TypingIndicator from './TypingIndicator';
+import MultilingualTypingIndicator from './MultilingualTypingIndicator';
+import LanguageSelector from './LanguageSelector';
+import { 
+  Language, 
+  getInitialLanguage, 
+  saveLanguagePreference, 
+  getTranslations 
+} from '@/utils/languageUtils';
 
 interface Message {
   id: string;
@@ -24,16 +31,32 @@ interface ChatWindowProps {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose }) => {
+  // Language state
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const translations = getTranslations(language);
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       type: 'bot',
-      text: 'Hello! I am ISMBUDDY, your virtual assistant for IIT ISM Dhanbad. How can I help you today?',
+      text: translations.welcomeMessage,
       timestamp: new Date(),
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Update initial message when language changes
+  useEffect(() => {
+    setMessages([
+      {
+        id: '1',
+        type: 'bot',
+        text: translations.welcomeMessage,
+        timestamp: new Date(),
+      },
+    ]);
+  }, [language]);
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -62,15 +85,15 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
       
       // Simple response logic based on keywords
       if (userMessage.toLowerCase().includes('admission')) {
-        botResponse = 'For admission inquiries, please visit the Admissions section on our website or contact the Admissions Office at admissions@iitism.ac.in';
+        botResponse = translations.admissionResponse;
       } else if (userMessage.toLowerCase().includes('course') || userMessage.toLowerCase().includes('program')) {
-        botResponse = 'IIT ISM Dhanbad offers various undergraduate, postgraduate, and doctoral programs across multiple disciplines. You can find detailed information on our Academics page.';
+        botResponse = translations.courseResponse;
       } else if (userMessage.toLowerCase().includes('faculty') || userMessage.toLowerCase().includes('professor')) {
-        botResponse = 'Our institute has distinguished faculty members across various departments. You can find their profiles on the respective department pages.';
+        botResponse = translations.facultyResponse;
       } else if (userMessage.toLowerCase().includes('hostel') || userMessage.toLowerCase().includes('accommodation')) {
-        botResponse = 'IIT ISM Dhanbad provides hostel facilities for students. For specific queries about accommodation, please contact the Hostel Administration Office.';
+        botResponse = translations.hostelResponse;
       } else {
-        botResponse = 'Thank you for your message. As a demo chatbot, I have limited responses. When connected to the database and LLM, I will be able to provide more accurate and helpful information about IIT ISM Dhanbad.';
+        botResponse = translations.defaultResponse;
       }
 
       const newBotMessage: Message = {
@@ -84,9 +107,16 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
     }, 1500);
   };
 
+  const handleLanguageChange = (newLanguage: Language) => {
+    setLanguage(newLanguage);
+    saveLanguagePreference(newLanguage);
+  };
+
   if (minimized) {
     return null;
   }
+
+  const availableLanguages: Language[] = ['en', 'hi', 'fr', 'es'];
 
   return (
     <Card className="flex flex-col w-full h-full max-w-sm rounded-lg shadow-lg overflow-hidden border border-gray-200">
@@ -96,6 +126,19 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
           <ISMBuddyLogo size="sm" />
         </div>
         <div className="flex items-center gap-1">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <LanguageSelector 
+                  currentLanguage={language}
+                  onLanguageChange={handleLanguageChange}
+                  languages={availableLanguages}
+                />
+              </TooltipTrigger>
+              <TooltipContent>Change Language</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -146,7 +189,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
               <Bot size={16} />
             </div>
             <div className="bg-gray-100 text-ism-dark rounded-lg p-3">
-              <TypingIndicator />
+              <MultilingualTypingIndicator translations={translations} />
             </div>
           </div>
         )}
@@ -154,7 +197,11 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
       </div>
 
       {/* Input */}
-      <ChatInput onSend={handleSendMessage} disabled={isTyping} />
+      <ChatInput 
+        onSend={handleSendMessage}
+        disabled={isTyping}
+        translations={translations}
+      />
     </Card>
   );
 };
