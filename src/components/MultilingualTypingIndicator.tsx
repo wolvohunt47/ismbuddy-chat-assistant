@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { CircleDot } from 'lucide-react';
 import { Translations } from '@/utils/languageUtils';
 
 interface MultilingualTypingIndicatorProps {
