@@ -22,7 +22,7 @@ const Index = () => {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4 text-ism-blue">Welcome to IIT ISM Dhanbad Demo Page</h2>
             <p className="text-gray-700">
-              This is a demonstration page for the ISMBUDDY chatbot. In a real implementation, this would be integrated with your actual website content. The ISMBUDDY chatbot is accessible from the bottom-right corner of the page.
+              This is a demonstration page for the NEWBRAND chatbot. In a real implementation, this would be integrated with your actual website content. The NEWBRAND chatbot is accessible from the bottom-right corner of the page.
             </p>
           </section>
 
@@ -42,12 +42,12 @@ const Index = () => {
           </section>
 
           <section className="bg-white p-6 rounded-lg shadow-md mb-10">
-            <h2 className="text-xl font-bold mb-4 text-ism-blue">About ISMBUDDY</h2>
+            <h2 className="text-xl font-bold mb-4 text-ism-blue">About NEWBRAND</h2>
             <p className="text-gray-700 mb-4">
-              ISMBUDDY is an intelligent chatbot designed to assist students, faculty, prospective students, and visitors of IIT ISM Dhanbad. It provides quick access to information about the institution, its programs, facilities, and services.
+              NEWBRAND is an intelligent chatbot designed to assist students, faculty, prospective students, and visitors of IIT ISM Dhanbad. It provides quick access to information about the institution, its programs, facilities, and services.
             </p>
             <p className="text-gray-700">
-              This is a demonstration version of ISMBUDDY. In the complete implementation, it will be connected to a database and language model to provide real-time, accurate information about IIT ISM Dhanbad.
+              This is a demonstration version of NEWBRAND. In the complete implementation, it will be connected to a database and language model to provide real-time, accurate information about IIT ISM Dhanbad.
             </p>
           </section>
         </main>

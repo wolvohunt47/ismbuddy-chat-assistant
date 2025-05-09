@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
-import ISMBuddyLogo from './ISMBuddyLogo';
+import NewBrandLogo from './ISMBuddyLogo';
 
 interface ChatButtonProps {
   onClick: () => void;
@@ -20,7 +20,7 @@ const ChatButton: React.FC<ChatButtonProps> = ({ onClick }) => {
         <MessageCircle size={24} />
       </Button>
       <div className="bg-white p-1 px-3 rounded-full shadow-md">
-        <ISMBuddyLogo size="sm" />
+        <NewBrandLogo size="sm" />
       </div>
     </div>
   );

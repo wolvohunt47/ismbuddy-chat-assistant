@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Build artifacts
+/.vite
+/.next
+/out
+
+# Editor directories
+.vscode
+.idea
