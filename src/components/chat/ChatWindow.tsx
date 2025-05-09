@@ -64,7 +64,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
   const availableLanguages: Language[] = ['en', 'hi', 'fr', 'es'];
 
   return (
-    <Card className="flex flex-col w-full h-full max-w-sm rounded-lg shadow-lg overflow-hidden border border-gray-200">
+    <Card className="chat-window flex flex-col w-full h-full max-w-sm rounded-lg shadow-xl overflow-hidden border border-gray-200">
       <ChatHeader 
         onMinimize={onMinimize} 
         onClose={onClose}

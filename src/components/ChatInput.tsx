@@ -29,20 +29,20 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false, transla
   };
 
   return (
-    <div className="flex gap-2 p-3 border-t bg-white">
+    <div className="chat-input-container flex gap-2 p-4 border-t rounded-b-lg">
       <Input
         placeholder={translations.inputPlaceholder}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
         disabled={disabled}
-        className="flex-grow"
+        className="flex-grow bg-white/70 backdrop-blur-sm border-gray-200 focus:border-ism-blue"
       />
       <Button 
         onClick={handleSend} 
         disabled={disabled || inputValue.trim() === ''}
         variant="default"
-        className="bg-ism-maroon hover:bg-ism-maroon/90"
+        className="bg-ism-maroon hover:bg-ism-maroon/90 shadow-md transition-all duration-300"
       >
         <SendHorizontal size={18} />
       </Button>

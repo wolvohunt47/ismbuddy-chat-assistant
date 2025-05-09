@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { MinimizeIcon, X } from 'lucide-react';
-import NewBrandLogo from '../ISMBuddyLogo';
+import ISMBuddyLogo from '../ISMBuddyLogo';
 import LanguageSelector from '../LanguageSelector';
 import { Language } from '@/utils/languageUtils';
 
@@ -23,11 +23,11 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
   availableLanguages
 }) => {
   return (
-    <div className="flex items-center justify-between p-3 bg-ism-maroon text-white border-b">
+    <div className="chat-header flex items-center justify-between p-4 text-white border-b rounded-t-lg">
       <div className="flex items-center gap-2">
-        <NewBrandLogo size="sm" />
+        <ISMBuddyLogo size="sm" />
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-2">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

@@ -18,31 +18,31 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, message, timestamp }) =
   return (
     <div 
       className={cn(
-        "flex items-start gap-3 animate-fade-in py-2",
+        "flex items-start gap-3 message-pop py-3",
         isBot ? "justify-start" : "flex-row-reverse"
       )}
     >
       <div 
         className={cn(
-          "rounded-full p-2 flex items-center justify-center",
-          isBot ? "bg-ism-blue text-white" : "bg-ism-gold text-ism-dark"
+          "rounded-full p-2 flex items-center justify-center shadow-md",
+          isBot ? "bot-avatar" : "user-avatar"
         )}
       >
         {isBot ? (
-          <div className="text-xs font-bold">IIT</div>
+          <div className="text-xs font-bold text-white">IIT</div>
         ) : (
-          <User size={16} />
+          <User size={16} className="text-ism-dark" />
         )}
       </div>
       <div 
         className={cn(
-          "rounded-lg p-3 max-w-[80%]",
-          isBot ? "bg-gray-100 text-ism-dark" : "bg-ism-maroon text-white"
+          "message-bubble max-w-[80%]",
+          isBot ? "message-bubble-bot" : "message-bubble-user"
         )}
       >
-        <div>{message}</div>
+        <div className="whitespace-pre-wrap">{message}</div>
         <div className={cn(
-          "text-xs mt-1",
+          "text-xs mt-2",
           isBot ? "text-gray-500" : "text-gray-300"
         )}>
           {formattedTime}
