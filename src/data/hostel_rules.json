@@ -1,0 +1,22 @@
+{
+  "doc_id": "Hostel Residents Rules and Regulation.pdf",
+  "title": "Hostel Residents Rules & Regulation",
+  "sections": [
+    {
+      "heading": "General Conduct",
+      "content_snippet": "Keep room & surroundings clean; no cooking; no pets; adhere to quiet hours..."
+    },
+    {
+      "heading": "Safety & Security",
+      "content_snippet": "No firearms, no gambling, night attendance register..."
+    },
+    {
+      "heading": "Disciplinary Actions",
+      "content_snippet": "Fines for violations, authority hierarchy for appeals..."
+    },
+    {
+      "heading": "Visitors & Night-Out Policy",
+      "content_snippet": "Prior written permission; medical emergencies exception..."
+    }
+  ]
+}

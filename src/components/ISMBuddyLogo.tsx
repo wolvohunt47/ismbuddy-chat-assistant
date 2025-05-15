@@ -11,14 +11,14 @@ const ISMBuddyLogo: React.FC<ISMBuddyLogoProps> = ({
     lg: 'w-12 h-12'
   };
   return <div className="flex items-center gap-2">
-      <div className={`${sizeClasses[size]} rounded-full overflow-hidden bg-white flex items-center justify-center border-2 border-ism-gold`}>
+      <div className={`${sizeClasses[size]} rounded-full overflow-hidden bg-white flex items-center justify-center border-2 border-[#FFD700]`}>
         {/* Simplified version of IIT ISM Dhanbad logo */}
-        <div className="w-full h-full bg-ism-blue flex items-center justify-center text-white font-bold">
+        <div className="w-full h-full bg-[#003366] flex items-center justify-center text-white font-bold">
           <span className="text-xs">IIT</span>
         </div>
       </div>
       <div className="font-bold">
-        <span className="text-ism-gold">IIT</span>
+        <span className="text-[#FFD700]">ISM</span>
         <span className="font-extrabold text-zinc-950">BUDDY</span>
       </div>
     </div>;

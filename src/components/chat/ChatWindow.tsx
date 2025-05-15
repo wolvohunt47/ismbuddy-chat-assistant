@@ -18,17 +18,29 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const translations = getTranslations(language);
   
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      type: 'bot',
-      text: translations.welcomeMessage,
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = localStorage.getItem('chatMessages');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) return parsed;
+      } catch {}
+    }
+    return [
+      {
+        id: '1',
+        type: 'bot',
+        text: translations.welcomeMessage,
+        timestamp: new Date(),
+      },
+    ];
+  });
   const [isTyping, setIsTyping] = useState(false);
 
   // Update initial message when language changes
+  useEffect(() => {
+    localStorage.setItem('chatMessages', JSON.stringify(messages));
+  }, [messages]);
   useEffect(() => {
     setMessages([
       {
@@ -38,6 +50,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
         timestamp: new Date(),
       },
     ]);
+    localStorage.removeItem('chatMessages');
   }, [language]);
 
   const handleSendMessage = (text: string) => {
@@ -55,6 +68,19 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage);
     saveLanguagePreference(newLanguage);
+  };
+
+  const handleFileUpload = (file: File) => {
+    const newFileMessage: Message = {
+      id: Date.now().toString(),
+      type: 'user',
+      text: `Sent a file: ${file.name}`,
+      timestamp: new Date(),
+      fileUrl: URL.createObjectURL(file),
+      fileName: file.name,
+      fileType: file.type,
+    } as any;
+    setMessages((prev) => [...prev, newFileMessage]);
   };
 
   if (minimized) {
@@ -83,6 +109,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ minimized, onMinimize, onClose 
         onSend={handleSendMessage}
         disabled={isTyping}
         translations={translations}
+        onFileUpload={handleFileUpload}
       />
     </Card>
   );

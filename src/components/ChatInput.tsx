@@ -9,10 +9,21 @@ interface ChatInputProps {
   onSend: (message: string) => void;
   disabled?: boolean;
   translations: Translations;
+  onFileUpload?: (file: File) => void;
 }
 
-const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false, translations }) => {
+const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false, translations, onFileUpload }) => {
   const [inputValue, setInputValue] = useState('');
+  const [file, setFile] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+      if (onFileUpload) {
+        onFileUpload(e.target.files[0]);
+      }
+    }
+  };
 
   const handleSend = () => {
     if (inputValue.trim() !== '') {
@@ -38,13 +49,25 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled = false, transla
         disabled={disabled}
         className="flex-grow"
       />
-      <Button 
-        onClick={handleSend} 
+      <input
+        type="file"
+        onChange={handleFileChange}
+        disabled={disabled}
+        className="hidden"
+        id="chat-file-upload"
+      />
+      <label htmlFor="chat-file-upload" className="cursor-pointer flex items-center px-2">
+        <span role="img" aria-label="Attach file">📎</span>
+      </label>
+      <Button
+        type="button"
+        onClick={handleSend}
         disabled={disabled || inputValue.trim() === ''}
-        variant="default"
-        className="bg-ism-maroon hover:bg-ism-maroon/90"
+        size="icon"
+        className="rounded-full"
+        aria-label={translations.sendButtonLabel}
       >
-        <SendHorizontal size={18} />
+        <SendHorizontal className="w-5 h-5" />
       </Button>
     </div>
   );

@@ -1,0 +1,22 @@
+{
+  "doc_id": "International-Hostel_rules_and_regulations.pdf",
+  "title": "International EDC Annexe / International Hostel Rules",
+  "sections": [
+    {
+      "heading": "1. General Rules",
+      "subsections": ["Keys & Inspections", "No Tenancy", "Fee & Deposit", "Room Changes"]
+    },
+    {
+      "heading": "2. Conduct & Prohibitions",
+      "subsections": ["No alcohol/drugs/smoking", "No political/communal activity", "Silence hours"]
+    },
+    {
+      "heading": "3. Cleanliness & Maintenance",
+      "subsections": ["No posters, no food in rooms, damage penalties"]
+    },
+    {
+      "heading": "4. Disciplinary Actions & Handling Authorities",
+      "subsections": ["Acts of Violation 1–32", "Competent Authorities"]
+    }
+  ]
+}
